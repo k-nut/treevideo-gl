@@ -42,10 +42,10 @@ map.on('load', function () {
         let currentIndex = 1;
         const currentYearDiv = document.getElementById("currentYear");
         window.setInterval(() => {
-            const lastLayer = toggleableLayerIds[currentIndex - 1];
-            const nextLayer = toggleableLayerIds[currentIndex];
-            map.setLayoutProperty(lastLayer, 'visibility', 'none');
+            const lastLayer = toggleableLayerIds[currentIndex - 2];
+            const nextLayer = toggleableLayerIds[currentIndex - 1];
             map.setLayoutProperty(nextLayer, 'visibility', 'visible');
+            map.setLayoutProperty(lastLayer, 'visibility', 'none');
             currentIndex = (currentIndex + 1 ) % toggleableLayerIds.length;
             currentYearDiv.textContent = nextLayer.slice(6, 10);
         }, 500)
